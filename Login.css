@@ -1,0 +1,74 @@
+body {
+    animation: changeBackgroundColor 7s infinite;
+}
+
+#container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#block{
+    margin-top: 100px;
+    border: solid 2 black;
+    border-radius: 5px;
+    height: 400px;
+    width:500px;
+    background-color: beige;
+}
+h1{
+    padding-top: 20px;
+    margin-left: 210px;
+}
+form{
+    display: inline-flex;
+    flex-direction: column;
+}
+input{
+        border: none;
+        border-bottom: 2px solid #333;
+        background-color: transparent;
+        outline: none;
+        padding: 5px;
+        margin: 10px;
+        margin-left: 175px;
+}
+ #login input{
+    padding-top: 50px;
+ }  
+
+ button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100px;
+    margin-left: 210px;
+    margin-top:25px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+
+  
+@keyframes changeBackgroundColor {
+        0% {
+          background-color: #001F3F;
+        }
+        50% {
+          background-color: #FF4136;
+        }
+        100% {
+          background-color: #001F3F;
+        }
+  }

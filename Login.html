@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+    <div id="container">
+        <div id="login">
+            <div id="block">
+                <h1>Login</h1>
+                <form id="lgn">
+                    <input type="email" id="email1" placeholder="E-mail"/>
+                    <input type="password" id="password" placeholder="password"/>
+                    <button id="login-button">Sign In</button>
+                </form>
+            </div>
+        </div>
+        <div id="register">
+            <div id="block">
+                <h1>Register</h1>
+                <form id="lgn">
+                    <input type="email" id="email" placeholder="E-mail"/>
+                    <input type="password" id="pass" placeholder="password"/>
+                    <input type="text" id="name" placeholder="Name">
+                    <input type="text" id="skills" placeholder="Skills">
+                    <button id="reg-btn">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        alert("check console for dummy data");
+        const candidates = [
+  {
+    name: "John Doe",
+    email: "johndoe@example.com",
+    password: "password123",
+    skills: ["JavaScript", "HTML", "CSS", "React"]
+  },
+  {
+    name: "Jane Smith",
+    email: "janesmith@example.com",
+    password: "abc123",
+    skills: ["Python", "SQL", "Data Analysis", "Machine Learning"]
+  },
+  {
+    name: "Alex Johnson",
+    email: "alexjohnson@example.com",
+    password: "pass1234",
+    skills: ["Java", "Spring Framework", "Hibernate", "MySQL"]
+  },
+];
+console.log(candidates);
+function handleFormSubmission(event) {
+  event.preventDefault();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("pass").value;
+  const skills = document.getElementById("skills").value.split(",").map(skill => skill.trim());
+
+  const newCandidate = {
+    name,
+    email,
+    password,
+    skills
+  };
+
+  candidates.push(newCandidate);
+
+  console.log("Registration successful!");
+  console.log("New candidate added:", newCandidate);
+
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("pass").value = "";
+  document.getElementById("skills").value = "";
+}
+
+const submitButton = document.getElementById("reg-btn");
+submitButton.addEventListener("click", handleFormSubmission);
+
+function handleUserLogin(event) {
+  event.preventDefault();
+  const email = document.getElementById("email1").value;
+  const password = document.getElementById("password").value;
+  const candidate = candidates.find(candidate => candidate.email === email && candidate.password === password);
+
+  if (candidate) {
+    console.log("Login successful!");
+    console.log("Logged in candidate:", candidate);
+    window.location.href = "home.html";
+  } else {
+    alert("Login failed! Please check your email and password.");
+  }
+  document.getElementById("email1").value = "";
+  document.getElementById("password").value = "";
+}
+
+const loginButton = document.getElementById("login-button");
+loginButton.addEventListener("click", handleUserLogin);
+    </script>
+</body>
+</html>

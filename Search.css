@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+  }
+  #main{
+    margin-top: 100px;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-left: 40vw;
+    margin-bottom: 20px;
+  }
+  
+  #search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  #search-input {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  #search-input:focus {
+    outline: none;
+  }
+  
+  button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  #search-results {
+    height: 200px;
+    width:500px;
+    margin-left: 500px;
+    text-align: left;
+  }
+  
+  .candidate {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #a6b4f3;
+    border: 2px solid #4e4e4e;
+    border-radius: 4px;
+  }

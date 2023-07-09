@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Search.css">
+</head>
+<body>
+    <div id="main">
+    <h1>Candidate Search</h1>
+    <form id="search-form">
+      <input type="text" id="search-input" placeholder="Search by skills...">
+      <button type="submit">Search</button>
+    </form>
+    </div>
+    <div id="search-results"></div>
+    
+    <script>
+        const candidates = [
+  {
+    name: "John Doe",
+    email: "johndoe@example.com",
+    password: "password123",
+    skills: ["JavaScript", "HTML", "CSS", "React"]
+  },
+  {
+    name: "Jane Smith",
+    email: "janesmith@example.com",
+    password: "abc123",
+    skills: ["Python", "SQL", "Data Analysis", "Machine Learning"]
+  },
+  {
+    name: "Alex Johnson",
+    email: "alexjohnson@example.com",
+    password: "pass1234",
+    skills: ["Java", "Spring Framework", "Hibernate", "MySQL","javascript"]
+  }
+];
+function searchCandidates(event) {
+  event.preventDefault(); 
+  const query = document.getElementById("search-input").value.toLowerCase();
+  const results = candidates.filter(candidate => {
+    return candidate.skills.some(skill => skill.toLowerCase().includes(query));
+  });
+
+  const resultsContainer = document.getElementById("search-results");
+  resultsContainer.innerHTML = "";
+
+  if (results.length === 0) {
+    resultsContainer.innerHTML = "<p>No candidates found.</p>";
+  } else {
+    results.forEach(candidate => {
+      const candidateElement = document.createElement("div");
+      candidateElement.classList.add("candidate");
+      candidateElement.innerHTML = `
+        <h3>${candidate.name}</h3>
+        <p>Email: ${candidate.email}</p>
+        <p>Skills: ${candidate.skills.join(", ")}</p>
+      `;
+      resultsContainer.appendChild(candidateElement);
+    });
+  }
+}
+const searchForm = document.getElementById("search-form");
+searchForm.addEventListener("submit", searchCandidates);
+
+    </script>
+</body>
+</html>
